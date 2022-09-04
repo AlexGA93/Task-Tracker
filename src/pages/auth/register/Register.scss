@@ -1,0 +1,31 @@
+@import '../../../scss/index.scss';
+
+.card-container {
+    position: fixed;
+    width: 100%;  
+    min-height: 100vh;
+    padding: 15px;
+
+    // background: $gradient-background;
+    background: $background;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.card-form {
+
+    // position:sticky;
+    // left: 50%;
+    // top: 50%;
+    // display: block;
+    text-align: center;
+    align-items: center;
+    width: 500px;
+    height: 600px;
+}
+
