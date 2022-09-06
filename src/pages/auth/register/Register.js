@@ -19,16 +19,13 @@ function Register() {
   // local state
   const [localState, setLocalState] = useState( localStateObject );
 
-  const handleSubmit = ( event ) => {
-    event.preventDefault();
-    setLocalState({
-      username  : event.target.username,
-      email     : event.target.email,
-      password  : event.target.password,
-      password2 : event.target.password2
-    })
-
+  const handleSubmit = ( e ) => {
+    e.preventDefault();
     console.log(localState);
+  };
+
+  const onChange = ( e ) => {
+    setLocalState({...localState, [e.target.name]: e.target.value});
   };
 
 
@@ -40,29 +37,29 @@ function Register() {
         <form onSubmit={handleSubmit} >
           {/* Username */}
           <InputText  type="text" 
-                      value={localState.username} 
-                      onChange={handleSubmit} 
+                      name='username'
+                      onChange={onChange} 
                       placeholder="Username..."
                       className='ml-4 my-2 flex flex-column justify-content-center'
                       />
           {/* Email */}
           <InputText  type="text" 
-                      value={localState.email} 
-                      onChange={handleSubmit} 
+                      name='email'
+                      onChange={onChange} 
                       placeholder="Email..."
                       className='ml-4 my-2 flex flex-column justify-content-center'
                       />
           {/* Password */}
           <InputText  type="password" 
-                      value={localState.password} 
-                      onChange={handleSubmit} 
+                      name='password'
+                      onChange={onChange} 
                       placeholder="Password..."
                       className='ml-4 my-2 flex flex-column justify-content-center'
                       />
           {/* Confirm Password */}
           <InputText  type="password" 
-                      value={localState.password2} 
-                      onChange={handleSubmit} 
+                      name='password2'
+                      onChange={onChange} 
                       placeholder="Repeat the password..."
                       className='ml-4 flex flex-column justify-content-center'
                       />
