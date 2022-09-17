@@ -1,13 +1,17 @@
 @import './index.scss';
 
+html, body {
+    background: $background;
+    background-size: cover;
+}
+
 // Auth modules
 .card-container {
     position: fixed;
     width: 100%;  
     min-height: 100vh;
     padding: 15px;
-    background: $background;
-    background-size: cover;
+    
 
     display: flex;
     justify-content: center;

@@ -15,6 +15,7 @@ import Navbar from './shared/navbar/Navbar';
 import MainPage from './pages/MainPage/MainPage';
 import Login from './pages/auth/login/Login';
 import Register from './pages/auth/register/Register';
+import Dashboard from './pages/dashboard/Dashboard';
 
 import NotFound from './pages/NotFound/NotFound';
 
@@ -35,7 +36,7 @@ function App() {
 
 
         {/* PROTECTED component - User Dashboard */}
-        <Route path="/dashboard" element={ <Register />} />
+        <Route path="/dashboard" element={ <Dashboard />} />
 
         {/* Route to eny other route that there's not in our app */}
         <Route path="*" element={ < NotFound /> } />
