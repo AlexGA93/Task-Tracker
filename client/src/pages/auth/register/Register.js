@@ -10,30 +10,39 @@ import { useDispatch } from "react-redux";
 import { register } from "../../../redux/reducers/usersSlice";
 
 function Register() {
+  
   const localStateObject = {
-    username: "",
+    name: "",
+    secondName: "",
+    age: 0,
     email: "",
     password: "",
-    password2: "",
-    age: 0
+    password2: ""
   };
 
   // local state
   const [localState, setLocalState] = useState(localStateObject);
+  const [passwordMatch, setPasswordMatch] = useState(true);
+  const [userIsOlder, setUserIsOlder] = useState(true);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(localState);
-    
-    
-    dispatch(register({ ...localState }));
-    
-    //TODO: Validate registration info 
-    // redirect to dashoard
-    navigate('/dashboard')
+
+    // check for passwords matching
+    if(localState.password === localState.password2 && localState.age >= 18){
+      // We can continue to the process without password 2
+      delete localState.password2;
+      dispatch(register({ ...localState }));
+      navigate('/dashboard');
+    } else {
+      setPasswordMatch(false);
+      setUserIsOlder(false);
+      // reset localstate
+      setLocalState(localStateObject);
+    }
   };
 
   const onChange = (e) => {
@@ -46,18 +55,39 @@ function Register() {
         <h1>Register</h1>
         <h2>Register your account!</h2>
         <form onSubmit={handleSubmit}>
-          {/* Username */}
+          {/* User Name */}
           <InputText
             type="text"
-            name="username"
+            name="name"
+            value={localState.name}
             onChange={onChange}
-            placeholder="Username..."
+            placeholder="User First Name..."
             className="ml-4 my-2 flex flex-column justify-content-center"
+          />
+          {/* User Second Name */}
+          <InputText
+            type="text"
+            name="secondName"
+            value={localState.secondName}
+            onChange={onChange}
+            placeholder="User Second Name..."
+            className="ml-4 my-2 flex flex-column justify-content-center"
+          />
+         
+          {/* Age */}
+          <InputText
+            type="number"
+            name="age"
+            value={localState.age}
+            onChange={onChange}
+            placeholder="Age"
+            className={ userIsOlder ? "ml-4 flex flex-column justify-content-center" : "ml-4 flex flex-column justify-content-center p-invalid block"}
           />
           {/* Email */}
           <InputText
             type="text"
             name="email"
+            value={localState.email}
             onChange={onChange}
             placeholder="Email..."
             className="ml-4 my-2 flex flex-column justify-content-center"
@@ -66,6 +96,7 @@ function Register() {
           <InputText
             type="password"
             name="password"
+            value={localState.password}
             onChange={onChange}
             placeholder="Password..."
             className="ml-4 my-2 flex flex-column justify-content-center"
@@ -74,18 +105,12 @@ function Register() {
           <InputText
             type="password"
             name="password2"
+            value={localState.password2}
             onChange={onChange}
-            placeholder="Repeat the password..."
-            className="ml-4 flex flex-column justify-content-center"
+            placeholder={ passwordMatch ? "Repeat Password" : "Passwords must match!"}
+            className={ passwordMatch ? "ml-4 flex flex-column justify-content-center" : "ml-4 flex flex-column justify-content-center p-invalid block"}
           />
-          {/* Age */}
-          <InputText
-            type="number"
-            name="age"
-            onChange={onChange}
-            placeholder="Age"
-            className="ml-4 flex flex-column justify-content-center"
-          />
+          
 
           {/* Submit */}
           <Button type="submit" className="p-button-help my-4">
