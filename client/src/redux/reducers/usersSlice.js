@@ -26,7 +26,6 @@ const userSlice = createSlice({
           .post('api/auth/register', action.payload)
           // dealing with the response
           .then( ( response ) => {
-            // console.log(response.data);
             const { process_ok, token } = response.data;
             if(process_ok){
               // store JWT in local storage

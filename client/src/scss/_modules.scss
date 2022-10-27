@@ -1,26 +1,8 @@
 @import './index.scss';
 
-html, body {
-    background: $background;
-    background-size: cover;
-}
-
-// Auth modules
-.card-container {
-    position: fixed;
-    width: 100%;  
-    min-height: 100vh;
-    padding: 15px;
-    
-
+.form-control{
     display: flex;
-    justify-content: center;
-    align-items: center
-}
-
-.card-form {
-    text-align: center;
+    flex-direction: column;
     align-items: center;
-    width: 500px;
-    height: 600px;
+    justify-content: space-around;
 }

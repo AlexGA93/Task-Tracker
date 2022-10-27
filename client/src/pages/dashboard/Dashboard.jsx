@@ -14,7 +14,7 @@ function Dashboard() {
     if(localToken){
       dispatch( getData(localToken) );
     }else {
-      navigate('/login');
+      navigate('/');
     }
   });
 

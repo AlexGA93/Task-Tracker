@@ -7,7 +7,7 @@ function Navbar() {
 
     const leftContents = (
         <React.Fragment>
-            <Link to="/auth/login">
+            <Link to="/">
                 <Button label="Login" icon="pi pi-user" className="p-button-rounded p-button-primary mr-2" />
             </Link>
 

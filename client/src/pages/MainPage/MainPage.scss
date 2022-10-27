@@ -1,0 +1,42 @@
+@use '../../scss/modules';
+@import '../../scss/index.scss';
+
+.main_page-container {
+    display:flex;
+    justify-content: space-between;
+
+    &__image {
+        background: $background;
+
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        background-size: cover;
+    }
+
+    &__sidebar {
+        img {
+            height: 100px;
+            width: 100px;
+        }
+
+        h1 {
+            font-size: 40px;
+        }
+
+        background-color: $primary_color;
+        height: 100%;
+        width: 25%; //350px;
+        position: fixed;
+        padding: 20px;
+
+        display: flex;
+        flex-direction: column;
+        // justify-content: ;
+        align-items: center;
+    }
+}
+

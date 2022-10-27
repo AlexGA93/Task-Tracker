@@ -57,6 +57,7 @@ const authenticateUser = async (req = request, res = response) => {
 const registerUser = async (req = request, res = response) => {
   // extract body fields
   const { name, secondName, age, email, password } = req.body;
+  console.log(req.body);
 
   // try - catch
   try {

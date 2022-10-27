@@ -11,10 +11,11 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import './App.scss';
 
 //  Components
-import Navbar from './shared/navbar/Navbar';
+// import Navbar from './shared/navbar/Navbar';
 import MainPage from './pages/MainPage/MainPage';
-import Login from './pages/auth/login/Login';
-import Register from './pages/auth/register/Register';
+
+// import Login from './pages/auth/login/Login';
+// import Register from './pages/auth/register/Register';
 import Dashboard from './pages/dashboard/Dashboard';
 
 import NotFound from './pages/NotFound/NotFound';
@@ -23,16 +24,20 @@ function App() {
   PrimeReact.ripple = true;
   return (
     <Router>
-      <Navbar />
+
+      {/* <Navbar /> */}
+      {/* Sidebar */}
+      
+
       {/* Routes system */}
       <Routes>
         {/* Default component - Main Page */}
         <Route path="/" index element={ <MainPage /> } />
 
         {/* Auth routes - Login & Register */}
-        <Route path="auth" element={ <Navigate to="login" /> }/>
-        <Route path="auth/login" element={ <Login /> } />
-        <Route path="auth/register" element={ <Register />} />
+        {/* <Route path="auth" element={ <Navigate to="login" /> }/> */}
+        {/* <Route path="auth/login" element={ <Login /> } /> */}
+        {/* <Route path="auth/register" element={ <Register />} /> */}
 
 
         {/* PROTECTED component - User Dashboard */}
